@@ -2,6 +2,7 @@ import { reactive } from "./reactive";
 import { isObject } from "@vue/shared";
 import { track, trigger } from "./effect";
 
+// 标记是否已经是响应式数据
 export const enum ReactiveFlags {
   IS_REACTIVE = "__v_isReactive",
 }

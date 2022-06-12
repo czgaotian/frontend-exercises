@@ -8,7 +8,7 @@ function cleanupEffect(effect) {
   effect.deps.length = 0;
 }
 
-class ReactiveEffect {
+export class ReactiveEffect {
   public parent = null;
   // 记录依赖其的属性
   public deps = [];
@@ -65,11 +65,17 @@ export const track = (target, type, key) => {
   if (!dep) {
     depsMap.set(key, (dep = new Set()));
   }
-  let shouldTrack = !dep.has(activeEffect);
-  if (shouldTrack) {
-    dep.add(activeEffect);
-    // 存放属性对应的Set<ReactiveEffect>
-    activeEffect.deps.push(dep);
+  trackEffects(dep);
+};
+
+export const trackEffects = (dep) => {
+  if (activeEffect) {
+    let shouldTrack = !dep.has(activeEffect);
+    if (shouldTrack) {
+      dep.add(activeEffect);
+      // 存放属性对应的Set<ReactiveEffect>
+      activeEffect.deps.push(dep);
+    }
   }
 };
 
@@ -79,18 +85,22 @@ export const trigger = (target, type, key, newValue, oldValue) => {
   let effects = depsMap.get(key);
 
   if (effects) {
-    // 执行前拷贝，防止在执行effect时，被修改
-    effects = new Set(effects);
-    effects.forEach((effect) => {
-      if (effect.active) {
-        if (effect !== activeEffect) {
-          if (effect.scheduler) {
-            effect.scheduler(effect);
-          } else {
-            effect.run();
-          }
+    triggerEffect(effects);
+  }
+};
+
+export const triggerEffect = (effects) => {
+  // 执行前拷贝，防止在执行effect时，被修改
+  effects = new Set(effects);
+  effects.forEach((effect) => {
+    if (effect.active) {
+      if (effect !== activeEffect) {
+        if (effect.scheduler) {
+          effect.scheduler(effect);
+        } else {
+          effect.run();
         }
       }
-    });
-  }
+    }
+  });
 };
