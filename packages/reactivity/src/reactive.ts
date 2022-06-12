@@ -4,6 +4,10 @@ import { mutableHandlers, ReactiveFlags } from './baseHandler';
 // 做一次缓存
 const reactiveMap = new WeakMap();
 
+export const isReactive = (value) => {
+  return !!(value && value[ReactiveFlags.IS_REACTIVE])
+}
+
 // 将数据转换成响应式数据
 export const reactive = (target) => {
   if (isObject(target)) {
