@@ -1,5 +1,13 @@
 # 一些前端练习用的仓库
 
-`reservation` from <https://www.bilibili.com/video/BV1aV4y1L72b>
+## mini-single-spa
+学习 @woai3c 的 <https://github.com/woai3c/mini-single-spa> 这个项目
 
-`rust-in-action` from <https://book.douban.com/subject/36059499/>
+## reservation
+<https://www.bilibili.com/video/BV1aV4y1L72b>
+
+## rust-in-action
+<https://book.douban.com/subject/36059499/>
+
+## 2048-by-jquery
+初学前端时候写的，大部分都删掉了，留一个纪念
