@@ -4,3 +4,6 @@
 [submodule "2048-by-jquery"]
 	path = 2048-by-jquery
 	url = https://github.com/meannoharm/2048-by-jquery
+[submodule "mini-single-spa"]
+	path = mini-single-spa
+	url = https://github.com/meannoharm/mini-single-spa
