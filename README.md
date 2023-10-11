@@ -1,7 +1,7 @@
 # 一些前端练习用的仓库
 
 ## mini-single-spa
-学习 @woai3c 的 <https://github.com/woai3c/mini-single-spa> 这个项目
+学习 [@woai3c](https://github.com/woai3c) 的 <https://github.com/woai3c/mini-single-spa> 这个项目
 
 ## reservation
 <https://www.bilibili.com/video/BV1aV4y1L72b>
