@@ -1,5 +1,8 @@
 # 一些前端练习用的仓库
 
+## tiny-rendering-engine
+学习 [@woai3c](https://github.com/woai3c) 的 <https://github.com/woai3c/tiny-rendering-engine.git> 这个项目
+
 ## mini-single-spa
 学习 [@woai3c](https://github.com/woai3c) 的 <https://github.com/woai3c/mini-single-spa> 这个项目
 
