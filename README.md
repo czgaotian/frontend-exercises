@@ -1,5 +1,8 @@
 # 一些前端练习用的仓库
 
+## m-vue
+[vue设计与实现](https://book.douban.com/subject/35768338/)
+
 ## tiny-rendering-engine
 学习 [@woai3c](https://github.com/woai3c) 的 <https://github.com/woai3c/tiny-rendering-engine.git> 这个项目
 
