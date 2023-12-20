@@ -10,3 +10,6 @@
 [submodule "tiny-rendering-engine"]
 	path = tiny-rendering-engine
 	url = https://github.com/meannoharm/tiny-rendering-engine.git
+[submodule "m-vue"]
+	path = m-vue
+	url = https://github.com/meannoharm/m-vue.git
