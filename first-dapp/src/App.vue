@@ -26,7 +26,7 @@ const connectWallet = async () => {
   // get contract
   bankContract.value = new web3.value.eth.Contract(
     abi,
-    ""
+    import.meta.env.VITE_BANK_CONTRACT_ADDRESS
   );
 };
 
