@@ -1,21 +1,24 @@
 use std::collections::HashMap;
 
+#[derive(PartialEq, Debug)]
 pub struct Node {
     pub children: Vec<Node>,
     node_type: NodeType,
 }
 
+#[derive(PartialEq, Debug)]
 enum NodeType {
     Text(String),
     Element(ElementData),
 }
 
+#[derive(PartialEq, Debug)]
 struct ElementData {
     tag_name: String,
     attrs: AttrMap,
 }
 
-type AttrMap = HashMap<String, String>;
+pub type AttrMap = HashMap<String, String>;
 
 pub fn text(data: String) -> Node {
     Node {
