@@ -51,6 +51,16 @@ struct Color {
     a: u8,
 }
 
+pub fn parse(source: String) -> Stylesheet {
+    let mut parser = Parser {
+        pos: 0,
+        input: source,
+    };
+    Stylesheet {
+        rules: parser.parse_rules(),
+    }
+}
+
 struct Parser {
     pos: usize,
     input: String,
@@ -89,6 +99,19 @@ impl Parser {
 
     fn consume_whitespace(&mut self) {
         self.consume_while(char::is_whitespace);
+    }
+
+    /// Parse a list of rule sets, separated by optional whitespace.
+    fn parse_rules(&mut self) -> Vec<Rule> {
+        let mut rules = Vec::new();
+        loop {
+            self.consume_whitespace();
+            if self.eof() {
+                break;
+            }
+            rules.push(self.parse_rule());
+        }
+        rules
     }
 
     // Parse a rule set: `<selectors> { <declarations> }`.
@@ -267,7 +290,7 @@ mod tests {
     fn test_parse_color() {
         let mut parser = Parser {
             pos: 0,
-            input: "#ffcc00ff".to_string(),
+            input: "#ffcc00".to_string(),
         };
         if let Value::ColorValue(color) = parser.parse_color() {
             assert_eq!(color.r, 0xff);
@@ -292,5 +315,18 @@ mod tests {
         } else {
             panic!("Failed to parse declaration");
         }
+    }
+
+    #[test]
+    fn test_parse_rules() {
+        let mut parser = Parser {
+            pos: 0,
+            input: "div { color: blue; width: 100px; }".to_string(),
+        };
+        let stylesheet = parse(parser.input.clone());
+        assert_eq!(stylesheet.rules.len(), 1);
+        let rule = &stylesheet.rules[0];
+        assert_eq!(rule.selectors.len(), 1);
+        assert_eq!(rule.declarations.len(), 2);
     }
 }
