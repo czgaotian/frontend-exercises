@@ -9,6 +9,8 @@ export function Grass(rowIndex: number) {
     new THREE.BoxGeometry(tilesPerRow * tileSize, tileSize, 3),
     new THREE.MeshLambertMaterial({ color: 0xbaf455 })
   );
+
+  foundation.receiveShadow = true;
   foundation.position.z = 1.5;
   grass.add(foundation);
 

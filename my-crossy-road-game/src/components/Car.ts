@@ -15,6 +15,9 @@ export function Car(
     new THREE.BoxGeometry(60, 30, 15),
     new THREE.MeshLambertMaterial({ color, flatShading: true })
   );
+
+  main.castShadow = true;
+  main.receiveShadow = true;
   main.position.z = 12;
   car.add(main);
 
@@ -25,6 +28,9 @@ export function Car(
       flatShading: true,
     })
   );
+
+  cabin.castShadow = true;
+  cabin.receiveShadow = true;
   cabin.position.x = -6;
   cabin.position.z = 25.5;
   car.add(cabin);

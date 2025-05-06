@@ -18,6 +18,9 @@ export function Truck(
       flatShading: true,
     })
   );
+
+  cargo.castShadow = true;
+  cargo.receiveShadow = true;
   cargo.position.x = -15;
   cargo.position.z = 25;
   truck.add(cargo);
@@ -26,6 +29,9 @@ export function Truck(
     new THREE.BoxGeometry(30, 30, 30),
     new THREE.MeshLambertMaterial({ color, flatShading: true })
   );
+
+  cabin.castShadow = true;
+  cabin.receiveShadow = true;
   cabin.position.x = 35;
   cabin.position.z = 20;
   truck.add(cabin);

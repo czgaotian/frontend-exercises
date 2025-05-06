@@ -22,6 +22,9 @@ export function Tree(tileIndex: number, height: number) {
       flatShading: true,
     })
   );
+
+  crown.castShadow = true;
+  crown.receiveShadow = true;
   crown.position.z = height / 2 + 20;
   tree.add(crown);
 
