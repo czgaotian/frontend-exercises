@@ -8,7 +8,7 @@ type PropertyMap = HashMap<String, Value>;
 pub struct StyledNode<'a> {
     node: &'a Node,
     specified_values: PropertyMap,
-    children: Vec<StyledNode<'a>>,
+    pub children: Vec<StyledNode<'a>>,
 }
 
 pub enum Display {
