@@ -78,6 +78,8 @@ export function addRows() {
           rowData.direction,
           vehicle.color
         );
+
+        vehicle.ref = car;
         row.add(car);
       });
 
@@ -93,6 +95,8 @@ export function addRows() {
           rowData.direction,
           vehicle.color
         );
+
+        vehicle.ref = truck;
         row.add(truck);
       });
 
