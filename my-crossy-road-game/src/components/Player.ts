@@ -72,4 +72,7 @@ export function stepCompleted() {
 
   // Add new rows if the player is running out of them
   if (position.currentRow > rows.length - 10) addRows();
+
+  const scoreDOM = document.getElementById("score");
+  if (scoreDOM) scoreDOM.innerText = position.currentRow.toString();
 }
