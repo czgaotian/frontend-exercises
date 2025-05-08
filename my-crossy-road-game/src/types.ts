@@ -27,3 +27,5 @@ export type Row =
         ref?: THREE.Object3D;
       }[];
     };
+
+export type MoveDirection = "forward" | "backward" | "left" | "right";
