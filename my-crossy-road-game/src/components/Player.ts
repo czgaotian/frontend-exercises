@@ -76,3 +76,15 @@ export function stepCompleted() {
   const scoreDOM = document.getElementById("score");
   if (scoreDOM) scoreDOM.innerText = position.currentRow.toString();
 }
+
+export function initializePlayer() {
+  // Initialize the Three.js player object
+  player.position.x = 0;
+  player.position.y = 0;
+  player.children[0].position.z = 0;
+
+  position.currentRow = 0;
+  position.currentTile = 0;
+
+  movesQueue.length = 0;
+}
